@@ -1,0 +1,21 @@
+﻿@model ModelValidation.Models.Appointment
+
+@{
+    ViewBag.Title = "MakeBooking";
+}
+
+<h2>Book an Appointment</h2>
+
+@using (@Html.BeginForm("MakeBooking", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true);
+    @Html.ValidationMessageFor(m => m.ClientName);
+    <p>Your Name: @Html.EditorFor(m => m.ClientName)</p>
+    @Html.ValidationMessageFor(m => m.Date);
+    <p>Appointment Date: @Html.EditorFor(m => m.Date)</p>
+    @Html.ValidationMessageFor(m => m.TermsAccepted);
+    <p>@Html.EditorFor(m => m.TermsAccepted) I accept Terms and Conditions</p>
+    <button>Submit</button>
+
+}
+
